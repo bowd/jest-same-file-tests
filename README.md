@@ -2,7 +2,30 @@
 
 This plugin helps with writing your Jest tests along side your code, which is [common practice](https://doc.rust-lang.org/beta/rust-by-example/testing/unit_testing.html) in Rust, and the community seams enamored with the approach.
 
-## Example
+## Usage 
+
+Install jest-same-file-tests using yarn:
+
+```bash
+yarn add --dev jest-same-file-tests
+```
+
+Or npm:
+
+```bash
+npm install --save-dev jest-same-file-tests
+```
+
+Add the function as a global to the a [jest setup file](https://jestjs.io/docs/configuration#setupfiles-array):
+
+```js
+const tests = require('jest-same-file-tests').tests
+global.tests = tests
+```
+
+> TypeScript suport for injected global is in the TODO
+
+### Example
 
 ```typescript
 // file: example/src/mult.ts
@@ -48,6 +71,7 @@ tests('fact', () => {
 ```
 
 If we didn't use the `tests` function and write `describe` blocks directly, when running a single file, the test runner would execute the tests for all the imported files. In the example above when running tests for `fact` the tests for `mul` would be run as well because `fact` imports `mul`.
+
 
 ## TODOs
 
