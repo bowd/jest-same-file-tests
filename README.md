@@ -76,5 +76,6 @@ If we didn't use the `tests` function and write `describe` blocks directly, when
 ## TODOs
 
 - [ ] Inject `tests` global type nicely for Typescript support
+- [ ] Strip tests from build elegantly
 - [ ] Figure out how to get Jest code coverage to work, currently files which tests are ignored.
 - [ ] Figure out is there's a nicer way to work around the "Your test suite must contain at least one test". See comments in `src/index.ts`
