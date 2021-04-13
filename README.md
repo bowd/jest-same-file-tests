@@ -1,8 +1,8 @@
 # jest-same-file-tests
 
-This plugin can be used to enable you to write your specs along side your code.
+This plugin helps with writing your Jest tests along side your code, which is [common practice](https://doc.rust-lang.org/beta/rust-by-example/testing/unit_testing.html) in Rust, and the community seams enamored with the approach.
 
-Example:
+## Example
 
 ```typescript
 // file: example/src/mult.ts
