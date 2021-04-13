@@ -46,3 +46,11 @@ tests('fact', () => {
   })
 })
 ```
+
+If we didn't use the `tests` function and write `describe` blocks directly, when running a single file, the test runner would execute the tests for all the imported files. In the example above when running tests for `fact` the tests for `mul` would be run as well because `fact` imports `mul`.
+
+## TODOs
+
+- [ ] Inject `tests` global type nicely for Typescript support
+- [ ] Figure out how to get Jest code coverage to work, currently files which tests are ignored.
+- [ ] Figure out is there's a nicer way to work around the "Your test suite must contain at least one test". See comments in `src/index.ts`
