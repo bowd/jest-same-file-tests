@@ -1,0 +1,1 @@
+global.tests = require('../').tests

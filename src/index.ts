@@ -1,5 +1,4 @@
 import stackTrace from 'stack-trace'
-
 /*
  * This is an 80/20 solution to find if the tests
  * block was called from the first file that's in 
@@ -11,14 +10,14 @@ import stackTrace from 'stack-trace'
  * case depending on individual setups which may
  * require more complex logic here.
  */
-export const tests = (body: () => void) => {
+export const tests = (name: string, body: () => void) => {
   const cwd = process.cwd()
   const traces = stackTrace.parse(new Error()).filter((frame) => {
     return frame.getFileName().match(cwd) && !frame.getFileName().match("node_modules")
   })
 
   if (traces.length == 1) {
-    body()
+    describe(name, body)
   }
 }
 
@@ -30,7 +29,7 @@ export const tests = (body: () => void) => {
  * or add `tests.skip()` at the end of the file.
  */
 tests.skip = () => {
-  tests(() => {
+  tests('skip', () => {
     test.skip('', () => {})
   })
 }
