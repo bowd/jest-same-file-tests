@@ -23,7 +23,21 @@ const tests = require('jest-same-file-tests').tests
 global.tests = tests
 ```
 
-> TypeScript suport for injected global is in the TODO
+Adjust either [testMatch](https://jestjs.io/docs/configuration#testmatch-arraystring) or [testRegex](https://jestjs.io/docs/configuration#testregex-string--arraystring) to include regular source files:
+```js
+testMatch: ["**/*.[jt]s",],
+testRegex: [".*\\.(ts|js)$",],
+```
+
+Invoke your test
+- using npm: `npm test -- <file name w.o. extension>`
+- using yarn: `yarn test <file name w.o. extension>`
+
+** FIXME :
+- Still fails with "Your test suite must contain at least one test." - there must be steps missing or wrong! **
+- Once working, consider linking https://jestjs.io/docs/cli#running-from-the-command-line instead of duplicating CLI commands in "Invoke your test" step
+
+> TypeScript support for injected global is in the TODO
 
 ### Example
 
